@@ -27,6 +27,12 @@ public struct Hands: Shape {
         
     }
     
+    public init(clockTime: ClockTime, isAM: Binding<Bool>, visibleHands: Set<Hand> = Set(Hand.allCases)) {
+        self.clockTime = clockTime
+        self._isAM = isAM
+        self.visibleHands = visibleHands
+    }
+    
     public var clockTime: ClockTime
     
     public var visibleHands: Set<Hand>
@@ -36,12 +42,6 @@ public struct Hands: Shape {
     public var animatableData: ClockTime {
         get { clockTime }
         set { clockTime = newValue }
-    }
-    
-    public init(clockTime: ClockTime, isAM: Binding<Bool>, visibleHands: Set<Hand> = Set(Hand.allCases)) {
-        self.clockTime = clockTime
-        self._isAM = isAM
-        self.visibleHands = visibleHands
     }
     
     public func path(in rect: CGRect) -> Path {

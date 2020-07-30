@@ -9,6 +9,15 @@
 import SwiftUI
 
 public struct Labels<Content: View>: View {
+    public init(
+        labels: [Int],
+        @ViewBuilder content: @escaping (Int, Text
+        ) -> Content
+    ) {
+        self.labels = labels
+        self.content = content
+    }
+    
     public var labels: [Int]
     
     public var content: (Int, Text) -> Content

@@ -9,17 +9,33 @@
 import SwiftUI
 
 public struct Ticks: View {
+    public init(
+        majorTicks: Int,
+        subdivisions: Int,
+        lenght: CGFloat,
+        width: CGFloat = 2.0,
+        baseColor: Color = .secondary,
+        highlightedColor: Color = .primary
+    ) {
+        self.majorTicks = majorTicks
+        self.subdivisions = subdivisions
+        self.lenght = lenght
+        self.width = width
+        self.baseColor = baseColor
+        self.highlightedColor = highlightedColor
+    }
+    
     public var majorTicks: Int
     
     public var subdivisions: Int
     
     public var lenght: CGFloat
     
-    public var width: CGFloat = 2.0
+    public var width: CGFloat
     
-    public var highlightedColor: Color = .primary
+    public var highlightedColor: Color
     
-    public var baseColor: Color = .secondary
+    public var baseColor: Color
     
     private var totalTicks: Int {
         majorTicks * subdivisions
